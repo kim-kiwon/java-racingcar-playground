@@ -13,6 +13,10 @@ public class Cars {
         this.cars = cars;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     private void valid(List<Car> cars) {
         List<String> uniqueCarNames = cars.stream()
             .map(Car::getName)
