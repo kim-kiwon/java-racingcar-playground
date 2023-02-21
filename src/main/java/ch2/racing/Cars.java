@@ -1,5 +1,6 @@
 package ch2.racing;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,5 +29,16 @@ public class Cars {
             System.out.println(car);
         }
         System.out.println();
+    }
+
+    public List<Car> findFastest() {
+        int maxPos = cars.stream()
+            .mapToInt(Car::getPos)
+            .max()
+            .getAsInt();
+
+        return cars.stream()
+            .filter(car -> car.getPos() == maxPos)
+            .collect(Collectors.toList());
     }
 }

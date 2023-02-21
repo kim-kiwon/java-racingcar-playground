@@ -7,6 +7,7 @@ public class Car {
     public Car(String name) {
         valid(name);
         this.name = name;
+        this.pos = 1;
     }
 
     private void valid(String name) {
