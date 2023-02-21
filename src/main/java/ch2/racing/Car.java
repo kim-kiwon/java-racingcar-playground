@@ -5,11 +5,11 @@ public class Car {
     private int pos;
 
     public Car(String name) {
-        validName(name);
+        valid(name);
         this.name = name;
     }
 
-    private void validName(String name) {
+    private void valid(String name) {
         if (name == null) {
             throw new IllegalArgumentException("Car 이름은 null일 수 없습니다.");
         }
@@ -21,6 +21,10 @@ public class Car {
         if (name.length() > 5) {
             throw new IllegalArgumentException("Car 이름은 5자 초과일 수 없습니다.");
         }
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getPos() {
@@ -35,6 +39,18 @@ public class Car {
 
     private boolean canMove(int num) {
         return num >= 4;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(name + " : ");
+
+        for(int i = 0; i < pos; i++) {
+            sb.append("-");
+        }
+        return sb.toString();
     }
 }
 
